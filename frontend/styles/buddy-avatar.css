@@ -1,0 +1,391 @@
+/* Buddy Avatar Styles */
+
+/* Main Avatar Container */
+.buddy-avatar {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+      #4facfe 0%,
+      #00f2fe 20%,
+      #8b5cf6 40%,
+      #ec4899 60%,
+      #f97316 80%,
+      #ef4444 100%);
+  box-shadow:
+    0 0 40px rgba(79, 172, 254, 0.4),
+    0 0 80px rgba(139, 92, 246, 0.3),
+    0 0 120px rgba(239, 68, 68, 0.2),
+    inset 0 0 60px rgba(255, 255, 255, 0.1);
+  animation: buddyPulse 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.buddy-avatar::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,
+      rgba(79, 172, 254, 0.3),
+      rgba(139, 92, 246, 0.3),
+      rgba(239, 68, 68, 0.3));
+  z-index: -1;
+  filter: blur(20px);
+  animation: buddyGlow 2s ease-in-out infinite alternate;
+}
+
+/* Gradient Overlay */
+.buddy-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      transparent 60%);
+  pointer-events: none;
+}
+
+/* Emotion-based Avatar States */
+.buddy-avatar.listening {
+  animation: buddyListeningPulse 1s ease-in-out infinite;
+  box-shadow:
+    0 0 60px rgba(79, 172, 254, 0.6),
+    0 0 100px rgba(139, 92, 246, 0.4),
+    0 0 140px rgba(239, 68, 68, 0.3);
+}
+
+.buddy-avatar.thinking {
+  animation: buddyThinking 2s ease-in-out infinite;
+}
+
+.buddy-avatar.speaking {
+  animation: buddySpeaking 0.5s ease-in-out infinite;
+}
+
+.buddy-avatar.happy {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 50px rgba(79, 172, 254, 0.5),
+    0 0 90px rgba(139, 92, 246, 0.4),
+    0 0 130px rgba(239, 68, 68, 0.3);
+}
+
+.buddy-avatar.confused {
+  animation: buddyConfused 0.5s ease-in-out 3;
+}
+
+/* Eyes Container */
+.buddy-eyes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Individual Eye */
+.buddy-eye {
+  width: 12px;
+  height: 35px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  animation: eyeBlink 4s ease-in-out infinite;
+}
+
+/* Eye States */
+.buddy-eye.listening {
+  height: 50px;
+  animation: eyePulse 0.8s ease-in-out infinite;
+}
+
+.buddy-eye.thinking {
+  height: 25px;
+  animation: eyeThinking 1.5s ease-in-out infinite;
+}
+
+.buddy-eye.speaking {
+  animation: eyeSpeaking 0.3s ease-in-out infinite;
+}
+
+.buddy-eye.happy {
+  height: 45px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+.buddy-eye.confused {
+  animation: eyeConfused 0.3s ease-in-out 6;
+}
+
+/* Listening Pulse Effect */
+.listening-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid rgba(79, 172, 254, 0.6);
+  animation: listeningRipple 1.5s ease-out infinite;
+}
+
+/* Particle Effects */
+.buddy-particles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(139, 92, 246, 0.8) 50%,
+      transparent 100%);
+  border-radius: 50%;
+  animation: particleFloat 3s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+/* Animations */
+@keyframes buddyPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes buddyGlow {
+  0% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes buddyListeningPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes buddyThinking {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes buddySpeaking {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes buddyConfused {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes eyeBlink {
+
+  0%,
+  96%,
+  100% {
+    height: 35px;
+  }
+
+  98% {
+    height: 5px;
+  }
+}
+
+@keyframes eyePulse {
+
+  0%,
+  100% {
+    height: 50px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+
+  50% {
+    height: 42px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+  }
+}
+
+@keyframes eyeThinking {
+
+  0%,
+  100% {
+    height: 25px;
+    opacity: 0.8;
+  }
+
+  50% {
+    height: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes eyeSpeaking {
+
+  0%,
+  100% {
+    height: 35px;
+  }
+
+  25% {
+    height: 42px;
+  }
+
+  75% {
+    height: 30px;
+  }
+}
+
+@keyframes eyeConfused {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-3px) rotate(-5deg);
+  }
+
+  75% {
+    transform: translateY(3px) rotate(5deg);
+  }
+}
+
+@keyframes listeningRipple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(calc(var(--random-x, 20px))) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .buddy-avatar {
+    width: 240px;
+    height: 240px;
+  }
+
+  .buddy-particles {
+    width: 300px;
+    height: 300px;
+  }
+
+  .buddy-eyes {
+    gap: 30px;
+  }
+
+  .buddy-eye {
+    width: 10px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .buddy-avatar {
+    width: 200px;
+    height: 200px;
+  }
+
+  .buddy-particles {
+    width: 260px;
+    height: 260px;
+  }
+
+  .buddy-eyes {
+    gap: 25px;
+  }
+
+  .buddy-eye {
+    width: 8px;
+    height: 25px;
+  }
+}

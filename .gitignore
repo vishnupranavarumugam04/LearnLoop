@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Environment variables - CRITICAL: Never commit API keys!
+.env
+.env.local
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+backend/learnloop.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads (user files)
+backend/uploads/
+backend/uploads/*
+
+# Node modules (if frontend uses them)
+node_modules/
+frontend/node_modules/
+frontend/.next/
+
+# AWS credentials (if you add them)
+.aws/
+**/aws_credentials.json
+
+# Build files
+*.pyc
+frontend/out/
+frontend/build/
